@@ -1,0 +1,45 @@
+{% extends 'registration/master.html' %}
+{% load static %}
+{% block content %}
+
+    <form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		<div class="login-container">
+			<div class="screen-1">
+				<div class="logo flex flex-center">
+					{% load static %}
+					<img src="{% static 'modeler/images/logo.png' %}" alt="logo">
+				</div>
+				<div class="username">
+					<div class="flex">
+						<i id="user-icon" class="fa-solid fa-user"></i>
+						{{ form.username.label }}
+					</div>
+					<div class="sec-2">
+						{{ form.username.errors }}
+						{{ form.username }}
+					</div>
+				</div>
+				<div class="password1">
+					<div class="flex">
+						<i id="lock-icon" class="fa-solid fa-lock"></i>
+						{{ form.password.label }}
+					</div>
+					<div class="sec-2">
+						{{ form.password.errors }}
+						{{ form.password }}
+						<i id="show-icon" class="fa-solid fa-eye show-hide"></i>
+					</div>
+				</div>
+				<button class="btn login-btn" type="submit">Login</button>
+				<div class="login-footer flex jbetween">
+					<a href="{% url 'users:signup' %}?next={{next}}">
+						<span>Sign up</span>
+					</a>
+					<span>Forgot Password?</span>
+				</div>
+			</div>
+		</div>
+	</form>
+
+{% endblock %}

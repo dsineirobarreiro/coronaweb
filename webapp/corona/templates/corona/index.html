@@ -1,0 +1,56 @@
+{% extends 'corona/master.html' %}
+
+{% load static %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+
+<div id="carouselExample" class="carousel slide position-absolute top-0 z-0" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    </div>
+    <div class="carousel-inner">
+      <a href="{% url 'corona:event' %}">
+        <div class="carousel-item active vh-100">
+          <div class="d-flex align-items-center align-items-md-start h-100">
+            <div class="h-50">
+              <img src="{% static 'corona/images/home.jpg' %}" class="d-block w-100" alt="Home">
+            </div>
+          </div>
+          <div class="carousel-caption d-md-block">
+            <h5>¿Estáis preparados para lo que se viene?</h5>
+            <p>Próximamente, la familia Corona™ se reunirá de nuevo en un evento nunca visto hasta el momento</p>
+          </div>
+        </div>
+      </a>
+      <a href="{% url 'corona:profile' %}">
+        <div class="carousel-item vh-100">
+          <div class="d-flex align-items-center align-items-md-start h-100">
+            <div class="h-50">
+              <img src="{% static 'corona/images/event.jpg' %}" class="d-block w-100" alt="Memory">
+            </div>
+          </div>
+          <div class="carousel-caption d-md-block">
+            <h5>Las memorias están para recordarlas</h5>
+            <p>Mientras que la organización hace sus gestiones, revive los mejores momentos de pasados eventos</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <button class="carousel-control-prev z-0" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+
+
+{% endblock %}

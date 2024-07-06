@@ -1,0 +1,61 @@
+{% extends 'registration/master.html' %}
+{% load static %}
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="login-container">
+        <div class="screen-1">
+            <div class="logo flex flex-center">
+                {% load static %}
+                <img src="{% static 'modeler/images/logo.png' %}" alt="logo">
+            </div>
+            <div class="username">
+                <div class="flex">
+                    <i id="user-icon" class="fa-solid fa-user"></i>
+                    {{ form.username.label }}
+                </div>
+                <div class="sec-2">
+                    {{ form.username.errors }}
+                    {{ form.username }}
+                </div>
+            </div>
+            <div class="email">
+                <div class="flex">
+                    <i id="email-icon" class="fa-solid fa-envelope"></i>
+                    {{ form.email.label }}
+                </div>
+                <div class="sec-2">
+                    {{ form.email.errors }}
+                    {{ form.email }}
+                </div>
+            </div>
+            <div class="password1">
+                <div class="flex">
+                    <i id="email-icon" class="fa-solid fa-lock"></i>
+                    {{ form.password1.label }}
+                </div>
+                <div class="sec-2">
+                    {{ form.password1.errors }}
+                    {{ form.password1 }}
+                    <i id="email-icon" class="fa-solid fa-eye show-hide"></i>
+                </div>
+            </div>
+            <div class="password2">
+                <div class="flex">
+                    <i id="email-icon" class="fa-solid fa-lock"></i>
+                    {{ form.password2.label }}
+                </div>
+                <div class="sec-2">
+                    {{ form.password2.errors }}
+                    {{ form.password2 }}
+                    <i id="email-icon" class="fa-solid fa-eye show-hide"></i>
+                </div>
+            </div>
+            <button class="btn login-btn" type="submit">Sign up</button>
+            <div class="login-footer flex jbetween"><span><a href="{% url 'users:login' %}?next={{next}}">Already have account?</a></span></div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

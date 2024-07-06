@@ -1,0 +1,66 @@
+{% extends 'corona/master.html' %}
+
+{% load static %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+{% for key, value in events.items %}
+<div class="container py-5 text-light">
+    <div class="row text-center">
+        <div class="col p-3 fs-2 fw-semibold">
+            {{key}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col fs-5">
+            Galería de fotos
+        </div>
+    </div>
+    <div class="row">
+        {% for image in value.images %}
+        <div class="col-6 col-md-3 my-4">
+            <div class="hovereffect">
+                <img src="{{image.file.url}}" class="rounded w-100 h-100" alt="Event image">
+                    <div class="overlay">
+                        <h2></h2>
+                        <p class="set1">
+                            <a href="add">
+                                <i class="fa-solid fa-plus"></i>
+                            </a>
+                            <a href="download">
+                                <i class="fa-solid fa-download"></i>
+                            </a>
+                        </p>
+                        <hr>
+                        <hr>
+                        <p class="set2">
+                            <a href="share">
+                                <i class="fa-solid fa-share-nodes"></i>
+                            </a>
+                            <a href="info">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </a>
+                        </p>
+                    </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col fs-5">
+            Asistentes
+        </div>
+    </div>
+    <div class="row">
+        {% for person in value.people %}
+        <div class="col-6 col-md-2 my-4 text-center">
+            <i class="fa-solid fa-circle-user fa-2xl avatar-custom py-4 my-4"></i>
+            <div>{{person.user}}</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
